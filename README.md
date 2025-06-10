@@ -2,11 +2,11 @@
 
 ![License: GNU GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)
 
-**BBDE (Black-box Differential Evolution)** é um otimizador meta-heurístico híbrido projetado para resolver problemas de otimização numérica global com restrições.  [cite_start]A abordagem é baseada na meta-heurística Evolução Diferencial (DE) e foi desenvolvida como parte da tese de doutorado de Mariane Regina Sponchiado Cassenote no Programa de Pós-Graduação em Informática da Universidade Federal do Paraná (UFPR). 
+**BBDE (Black-box Differential Evolution)** é um otimizador meta-heurístico híbrido projetado para resolver problemas de otimização numérica global com restrições. A abordagem é baseada na meta-heurística Evolução Diferencial (DE) e foi desenvolvida como parte da tese de doutorado de Mariane Regina Sponchiado Cassenote no Programa de Pós-Graduação em Informática da Universidade Federal do Paraná (UFPR). 
 
 ## Sobre o Projeto
 
-O BBDE foi concebido para enfrentar funções-objetivo complexas, que podem ser não-lineares, não-convexas e multimodais.  [cite_start]Ele funciona como um resolvedor "caixa-fechada" (*black-box*), explorando estocasticamente o espaço de busca sem necessitar de informações sobre a estrutura algébrica da instância. 
+O BBDE foi concebido para enfrentar funções-objetivo complexas, que podem ser não-lineares, não-convexas e multimodais. Ele funciona como um resolvedor "caixa-fechada" (*black-box*), explorando estocasticamente o espaço de busca sem necessitar de informações sobre a estrutura algébrica da instância. 
 
 As principais características do BBDE incluem:
 
