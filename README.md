@@ -1,1 +1,61 @@
-# BBDE
+# BBDE: Black-box Differential Evolution
+
+![License: GNU GPLv3](https://img.shields.io/badge/License-GPLv3-blue.svg)
+
+[cite_start]**BBDE (Black-box Differential Evolution)** é um otimizador meta-heurístico híbrido projetado para resolver problemas de otimização numérica global com restrições.  [cite_start]A abordagem é baseada na meta-heurística Evolução Diferencial (DE) e foi desenvolvida como parte da tese de doutorado de Mariane Regina Sponchiado Cassenote no Programa de Pós-Graduação em Informática da Universidade Federal do Paraná (UFPR). 
+
+## Sobre o Projeto
+
+[cite_start]O BBDE foi concebido para enfrentar funções-objetivo complexas, que podem ser não-lineares, não-convexas e multimodais.  [cite_start]Ele funciona como um resolvedor "caixa-fechada" (*black-box*), explorando estocasticamente o espaço de busca sem necessitar de informações sobre a estrutura algébrica da instância. 
+
+As principais características do BBDE incluem:
+
+* [cite_start]**Base em Evolução Diferencial (DE):** Utiliza os princípios da DE para evoluir uma população de soluções candidatas. 
+* [cite_start]**Hibridização de Estratégias:** Incorpora múltiplas heurísticas e estratégias adaptativas de otimizadores de ponta da literatura para um desempenho mais robusto. 
+* [cite_start]**Esquema de Reinícios Periódicos:** Implementa um mecanismo de reinício para evitar a estagnação da busca em mínimos locais e promover uma exploração mais ampla do espaço de soluções. 
+* [cite_start]**Integração com Consistência Local:** É hibridizado com um contrator de consistência de arco generalizada (GAC) que utiliza as soluções factíveis encontradas para podar regiões sub-ótimas e infactíveis do espaço de busca. 
+
+## Como Usar
+
+### Pré-requisitos
+
+* Compilador C (gcc)
+* Make
+
+### Compilação e Execução
+
+Para executar o resolvedor em um arquivo de instância, utilize o seguinte comando:
+
+```bash
+./executa.sh <nome_da_instancia>
+```
+
+## Licença
+
+Este projeto está licenciado sob a **Licença GNU General Public License v3.0**. Veja o arquivo `LICENSE` para mais detalhes.
+
+## Como Citar Este Trabalho
+
+Se você utilizar o BBDE em sua pesquisa, por favor, cite a seguinte tese:
+
+**Cassenote, M. R. S. (2024).** *Hibridizações entre métodos exatos e meta-heurísticas: Estratégias para otimização global com restrições*. Tese de Doutorado, Programa de Pós-Graduação em Informática, Universidade Federal do Paraná, Curitiba, PR, Brasil.
+
+### BibTeX
+
+```bibtex
+@phdthesis{Cassenote2024,
+  author  = {Cassenote, Mariane Regina Sponchiado},
+  title   = {Hibridizações entre métodos exatos e meta-heurísticas: Estratégias para otimização global com restrições},
+  school  = {Universidade Federal do Paraná},
+  year    = {2024},
+  address = {Curitiba, PR, Brazil},
+  month   = {July},
+  note    = {Tese de Doutorado em Ciência da Computação}
+}
+```
+
+## Agradecimentos
+
+[cite_start]Este trabalho foi desenvolvido com o apoio do **Programa de Pós-Graduação em Informática (PPGInf)** da **Universidade Federal do Paraná (UFPR)** e financiado pela **Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES)**. 
+
+Agradecimentos especiais aos orientadores **Prof. Fabiano Silva** e **Prof. [cite_start]Guilherme Alex Derenievicz** pelo suporte e direcionamento ao longo da pesquisa.
