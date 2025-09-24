@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
 
 DIR_BIN="./bin"
-DIR_BASE="./../../.."
-ARQ_INSTANCIAS="${DIR_BASE}/minlplib/ate75dim.txt"
+DIR_BASE="./../.."
 DIR_EPIF="${DIR_BASE}/minlplib/epifitas"
 DIR_AMPL="${DIR_BASE}/minlplib/funcoes"
 LNK_SIMB="../instancia.c"
 LST_INST="./instancias.txt"
-
-if [[ -f ${LST_INST} ]]; then
-  rm -rf ${LST_INST}
-fi
 
 ################### COMPILA BINÁRIOS ###################
 
@@ -21,23 +16,28 @@ mkdir -p ${DIR_BIN}
 
 # echo ${LNK_SIMB}
 
-for i in $(cat ${ARQ_INSTANCIAS}); do
-  nome=$(basename ${i})
-  bin="${DIR_BIN}/inde-${nome}"
+for i in $(ls ${DIR_AMPL}/*.c); do
+  nome=$(basename ${i} .c)
+  bin="${DIR_BIN}/executa_${nome}"
   echo "
 
   *************** COMPILANDO: ${nome} ***************
 
   "
-  rm ${LNK_SIMB}; cp ${DIR_AMPL}/${i}.c ${LNK_SIMB}
-  make -C .. inde && mv ../inde ${bin}
+  rm ${LNK_SIMB}; cp ${i} ${LNK_SIMB}
+  make -C .. executa && mv ../executa ${bin}
+done
 
-  for f in $(find ${DIR_EPIF} -iname "${nome}.txt"); do
-    echo $(pwd)/$f >> ${LST_INST}
-  done
+################### LISTA INSTÂNCIAS ###################
 
+if [[ -f ${LST_INST} ]]; then
+  rm -rf ${LST_INST}
+fi
+
+for f in $(find ${DIR_EPIF} -iname "*.txt"); do
+  echo $(pwd)/$f >> ${LST_INST}
 done
 
 ##################### DISPARA JOBS #####################
 
-./configJobs.sh ${LST_INST}
+./config_jobs.sh ${LST_INST}
