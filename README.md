@@ -41,7 +41,7 @@ seu_diretorio_de_trabalho/
 Para executar o resolvedor em um arquivo de instância, utilize o seguinte comando:
 
 ```bash
-./executa.sh <nome_da_instancia>
+./teste.sh <nome_da_instancia>
 ```
 
 ## Licença
