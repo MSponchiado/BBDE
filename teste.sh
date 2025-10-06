@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#/usr/bin/env bash
 
 nomeinst=${1}
 DIR_FUNCOES="../MINLPLib/funcoes"

@@ -27,7 +27,7 @@
 
 // abandona a caixa quando sua maior dimensão atinge um tamanho mínimo DIM_MIN
 #define ABANDONA_CAIXA 0
-#define DIM_MIN 0.01
+#define DIM_MIN 0.001
 
 // aborta execução do BBDE no caso de MEM_SUCC_BBDE gerações sem melhoria
 #define ABORTA_BBDE 0
