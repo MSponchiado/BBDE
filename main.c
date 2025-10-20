@@ -5,6 +5,11 @@ int indiceFunObj;
 
 int main(int argc, char *argv[]) {
 
+  clock_t inicio, fim;
+  double tempo_usado = 0.0;
+
+  inicio = clock();  
+
   int realD = 0, ncons, bbde_multnp, newbest[2], log, seed;
   int interD, omega, restr_tern, ciclos = 0;
   double porcfes = 0.0, porcnfevalbest = 0.0;
@@ -63,6 +68,7 @@ int main(int argc, char *argv[]) {
     (inconsisGAC + consisGAC);
 
   newbest[0] = 0;
+
   /*----------enquantou houver orçamento e caixas na fila---------*/
   while (nfeval < maxfes) {
     ciclos++;
@@ -89,16 +95,19 @@ int main(int argc, char *argv[]) {
     mediacontrGACTotal = (inconsisGAC + (consisGAC * mediacontrGAC)) /
       (inconsisGAC + consisGAC);
 
+    fim = clock();
+    tempo_usado = ((double) (fim - inicio)) / CLOCKS_PER_SEC;
+
     if (log) {
       if (newbest[0] == 1)
         printf("-------------------- novo best %g %g --------------------\n",
           (*bestbox).cost, (*bestbox).viol);
       printf("c%g;v%g;D%d;rt%d;fes%.1f;cic%d;",
         (*bestbox).cost, (*bestbox).viol, realD, restr_tern, porcfes, ciclos);
-      printf("pbest%.1f;gac%ld;%ld;redGAC%g;%g;%llu;%llu;%llu\n",
+      printf("pbest%.1f;gac%ld;%ld;redGAC%g;%g;%llu;%llu;%llu;%f\n",
         porcnfevalbest, consisGAC, inconsisGAC,
         mediacontrGAC, mediacontrGACTotal,
-        DEBUG_ERRO_INSTANCIACAO, DEBUG_MAX_STEPS_REACHED, MAX_STEPS_USED);
+        DEBUG_ERRO_INSTANCIACAO, DEBUG_MAX_STEPS_REACHED, MAX_STEPS_USED, tempo_usado);
     }
 
   } // fim do loop
@@ -107,12 +116,12 @@ int main(int argc, char *argv[]) {
     printbox(bestbox, realD, 1);
 
   fclose(flog);
+
   porcfes = ((double)nfeval * 100) / (double)maxfes;
-  fprintf(fout, "%.8e;%.8e;%d;%d;%g;%d;%g;%ld;%ld;%g;%g;%llu;%llu;%llu\n",
-    (*bestbox).cost, (*bestbox).viol, realD, restr_tern, porcfes, ciclos,
-    porcnfevalbest, consisGAC, inconsisGAC,
-    mediacontrGAC, mediacontrGACTotal,
-    DEBUG_ERRO_INSTANCIACAO, DEBUG_MAX_STEPS_REACHED, MAX_STEPS_USED);
+  fprintf(fout, "%.8e;%.8e;%d;%d;%d;%g;%g;%ld;%ld;%g;%g;%llu;%llu;%llu;%f\n",
+    (*bestbox).cost, (*bestbox).viol, realD, restr_tern, ciclos,
+    porcfes, porcnfevalbest, consisGAC, inconsisGAC, mediacontrGAC, mediacontrGACTotal,
+    DEBUG_ERRO_INSTANCIACAO, DEBUG_MAX_STEPS_REACHED, MAX_STEPS_USED, tempo_usado);
 
   fclose(fout);
 

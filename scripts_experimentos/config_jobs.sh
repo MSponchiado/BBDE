@@ -20,7 +20,7 @@ job="$(mktemp -d ${DIR_JOBS}/job_${lname}_${s}_XXXXXX)/job"
 
 echo \
 "#!/usr/bin/env bash
-#SBATCH -J HIBB${s}
+#SBATCH -J BBDE${s}
 #SBATCH -o ${DIR_LOGS}/${lname}_${s}.out
 #SBATCH -c 3
 #SBATCH -N 1
